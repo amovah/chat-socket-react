@@ -1,0 +1,74 @@
+@import 'colors';
+
+.home.background {
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  background-image: url('/img/background.jpg');
+  background-size: cover;
+  filter: blur(10px);
+}
+
+.home.container {
+  width: 600px;
+  border-radius: 5px;
+  position: absolute;
+  top: 30%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  box-shadow: 2px 4px 6px rgba(0, 0, 0, 0.23),
+              3px 6px 13px rgba(0, 0, 0, 0.21);
+  color: white;
+  background-color: @base-1;
+
+  .header {
+    background-color: @base-2;
+    padding: 10px;
+    border-radius: 5px;
+
+    h3 {
+      margin: 0;
+    }
+  }
+
+  .form-group {
+    color: white;
+    text-align: center;
+    padding: 10px;
+
+    button {
+      padding: 5px 20px;
+      background-color: @base-4;
+      color: white;
+      border: 0;
+      cursor: pointer;
+      transition: all 0.5s;
+      border-radius: 5px;
+
+      &:hover {
+        background-color: @base-3;
+      }
+    }
+  }
+
+  .input-group {
+    padding: 10px;
+    margin: 10px;
+
+    input {
+      border: 0;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+      padding: 5px 10px;
+      box-sizing: border-box;
+      background-color: transparent;
+      transition: all 0.5s;
+      color: white;
+
+      &:focus {
+        border-bottom: 1px solid rgba(255, 255, 255, 1);
+      }
+    }
+  }
+}
