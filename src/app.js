@@ -6,6 +6,7 @@ import mongoose from 'mongoose';
 import { join } from 'path';
 
 global.rootRequire = name => require(join(__dirname, name));
+global.shared = { key: 'kcY"e[Ez4}f?yO7' };
 const sockets = require('./sockets');
 
 /**

@@ -1,7 +1,26 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import { connect } from 'react-redux';
+import { login } from '../actions/login';
 
 class Login extends Component {
+  @shared.bind
+  login() {
+    shared.socket.once('login', res => {
+      res ? this.props.dispatch(login(res)) : alert('damn it');
+    });
+
+    shared.socket.emit('login', {
+      username: this.refs.username.value,
+      password: this.refs.password.value
+    });
+  }
+
+  @shared.bind
+  log() {
+    console.log(this.props);
+  }
+
   render() {
     return (
       <div>
@@ -19,7 +38,8 @@ class Login extends Component {
               <label>password:</label><br/>
               <input type='password' ref='password' />
             </div>
-            <button>login</button>
+            <button onClick={this.login}>login</button>
+            <button onClick={this.log}>login</button>
             <p>You need a account? come <Link to='/signup'>here</Link></p>
           </div>
         </div>
@@ -28,4 +48,4 @@ class Login extends Component {
   }
 }
 
-export default Login;
+export default connect(state => state)(Login);
