@@ -1,13 +1,37 @@
 import 'babel-polyfill';
 import express from 'express';
-import path from 'path';
+import socketIO from 'socket.io';
+import { connect } from 'socket.io-manager';
+import mongoose from 'mongoose';
+import { join } from 'path';
 
-const app = express();
+global.rootRequire = name => require(join(__dirname, name));
+const sockets = require('./sockets');
 
-app.use(express.static(path.join(__dirname, 'static')));
+/**
+ * setting up db
+ */
+mongoose.Promise = global.Promise;
+mongoose.connect('mongodb://localhost/chat-socket');
 
-app.use((req, res) => {
-  res.sendFile(path.join(__dirname, 'views', 'index.html'));
+mongoose.connection.on('error', () => {
+  process.exit(0);
 });
 
-app.listen(8181);
+mongoose.connection.on('disconnected', () => {
+  process.exit(0);
+});
+
+
+const app = express();
+const server = app.listen(8181);
+
+const io = socketIO(server);
+
+app.use(express.static(join(__dirname, 'static')));
+
+app.use((req, res) => {
+  res.sendFile(join(__dirname, 'views', 'index.html'));
+});
+
+connect(io, sockets);

@@ -1,6 +1,19 @@
 import React, { Component } from 'react';
 
 export default class extends Component {
+  @shared.bind
+  submit() {
+    shared.socket.once('signup', res => {
+      res ? this.props.history.push('/login') : alert('Something is wrong');
+    });
+
+    shared.socket.emit('signup', {
+      nickname: this.refs.nickname.value,
+      username: this.refs.username.value,
+      password: this.refs.password.value
+    });
+  }
+
   render() {
     return (
       <div>
@@ -22,7 +35,7 @@ export default class extends Component {
               <label>password:</label><br/>
               <input type='password' ref='password' />
             </div>
-            <button>sign up</button>
+            <button onClick={this.submit}>sign up</button>
           </div>
         </div>
       </div>
