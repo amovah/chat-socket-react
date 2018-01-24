@@ -1,7 +1,7 @@
 {
   "name": "chat-socket-react",
   "version": "0.0.0",
-  "description": "",
+  "description": "chat room",
   "main": "build/server.js",
   "scripts": {
     "server": "nodemon --delay 0.5 build/app.js -e js",
@@ -13,7 +13,6 @@
   },
   "keywords": [],
   "author": "Ali Movahedi <ali_movahedi@aol.com>",
-  "license": "MIT",
   "bugs": {
     "url": "https://github.com/amovah/chat-socket-react/issues"
   },
