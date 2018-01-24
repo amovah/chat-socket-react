@@ -1,11 +1,11 @@
 import { createStore, applyMiddleware } from 'redux';
 import reducers from './reducers';
 import thunk from 'redux-thunk';
-import loadToken from './actions/loadToken';
+import relogin from './actions/relogin';
 
 const store = createStore(reducers, applyMiddleware(thunk));
 
-store.dispatch(loadToken());
+store.dispatch(relogin());
 
 window.store = store;
 
