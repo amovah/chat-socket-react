@@ -7,7 +7,12 @@ class Login extends Component {
   @shared.bind
   login() {
     shared.socket.once('login', res => {
-      res ? this.props.dispatch(login(res)) : alert('damn it');
+      if (res) {
+        this.props.dispatch(login(res));
+        this.props.history.push('/room');
+      } else {
+        alert('damn it');
+      }
     });
 
     shared.socket.emit('login', {

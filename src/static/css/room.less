@@ -1,0 +1,51 @@
+@import 'colors';
+
+.room.background {
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  background-color: #F6F6F6;
+}
+
+.room.sidebar {
+  position: absolute;
+  right: 30px;
+  top: 30px;
+  bottom: 30px;
+  width: 300px;
+  background-color: @base-1;
+  border-radius: 5px;
+  color: white;
+  box-sizing: border-box;
+
+  .header {
+    background-color: @base-2;
+    padding: 10px;
+    border-radius: 5px;
+    font-size: 20px;
+  }
+}
+
+.room.chats {
+  position: absolute;
+  left: 30px;
+  right: 360px;
+  top: 30px;
+  bottom: 110px;
+  border-radius: 5px;
+  background-color: @base-1;
+  box-sizing: border-box;
+}
+
+.room.inputarea {
+  position: absolute;
+  left: 30px;
+  right: 360px;
+  bottom: 30px;
+  height: 50px;
+  border-radius: 5px;
+  background-color: @base-1;
+  box-sizing: border-box;
+}
