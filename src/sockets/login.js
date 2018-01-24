@@ -15,6 +15,8 @@ socket
         socket.data.user = user;
         socket.data.logged = true;
 
+        socket.join(shared.key);
+
         socket.emit(
           'login',
           sign({ user: user._id }, shared.key, { expiresIn: '1day' })

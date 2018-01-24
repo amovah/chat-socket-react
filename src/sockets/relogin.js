@@ -19,6 +19,8 @@ socket
             socket.data.user = user;
             socket.data.logged = true;
 
+            socket.join(shared.key);
+
             socket.emit('relogin', true);
           });
         } else {
