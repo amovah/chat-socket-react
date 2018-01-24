@@ -1,4 +1,5 @@
 export default {
   LOGIN: 'LOGIN',
-  LOGOUT: 'LOGOUT'
+  LOGOUT: 'LOGOUT',
+  ADD_ONLINE: 'ADD_ONLINE'
 };

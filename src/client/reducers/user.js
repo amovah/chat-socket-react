@@ -1,6 +1,6 @@
-import * as types from '../actions';
+import types from '../actions';
 
-export default function(state = { token: '', logged: false }, action) {
+export default (state = { token: '', logged: false }, action) => {
   switch (action.type) {
     case types.LOGIN: {
       return {
@@ -20,4 +20,4 @@ export default function(state = { token: '', logged: false }, action) {
       return state;
     }
   }
-}
+};
