@@ -10,13 +10,16 @@ socket
 .handler(socket => data => {
   User.findOne(data).then(user => {
     if (user) {
-      socket.data.user = user;
-      socket.data.logged = true;
-      
-      socket.emit(
-        'login',
-        sign({ user: user._id }, shared.key, { expiresIn: '1day' })
-      );
+      user.status = true;
+      user.save().then(() => {
+        socket.data.user = user;
+        socket.data.logged = true;
+
+        socket.emit(
+          'login',
+          sign({ user: user._id }, shared.key, { expiresIn: '1day' })
+        );
+      });
     } else {
       socket.emit('login', false);
     }

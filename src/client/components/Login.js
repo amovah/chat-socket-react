@@ -39,7 +39,7 @@ class Login extends Component {
               <input type='password' ref='password' />
             </div>
             <button onClick={this.login}>login</button>
-            <p>You need a account? come <Link to='/signup'>here</Link></p>
+            <p>you need a account? come <Link to='/signup'>here</Link></p>
           </div>
         </div>
       </div>

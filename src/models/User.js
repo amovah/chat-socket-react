@@ -15,7 +15,8 @@ const schema = new Schema({
   password: {
     type: String,
     required: true
-  }
+  },
+  status: Boolean
 });
 
 export default mongoose.model('User', schema);

@@ -36,6 +36,7 @@ export default class extends Component {
               <input type='password' ref='password' />
             </div>
             <button onClick={this.submit}>sign up</button>
+            <p>you already have account? come <Link to='/login'>here</Link></p>
           </div>
         </div>
       </div>

@@ -14,9 +14,13 @@ socket
     } else {
       User.findById(decoded.user).then(user => {
         if (user) {
-          socket.data.user = user;
+          user.status = true;
+          user.save().then(() => {
+            socket.data.user = user;
+            socket.data.logged = true;
 
-          socket.emit('relogin', true);
+            socket.emit('relogin', true);
+          });
         } else {
           socket.emit('relogin', false);
         }
