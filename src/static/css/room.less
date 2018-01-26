@@ -51,6 +51,14 @@
   background-color: @base-1;
   box-sizing: border-box;
   overflow-y: auto;
+
+  .chat {
+    background-color: @base-2;
+    color: white;
+    padding: 10px;
+    border-radius: 5px;
+    margin: 10px;
+  }
 }
 
 .room.inputarea {
@@ -62,4 +70,32 @@
   border-radius: 5px;
   background-color: @base-1;
   box-sizing: border-box;
+
+  input {
+    box-sizing: border-box;
+    position: relative;
+    left: 10px;
+    top: 10px;
+    bottom: 10px;
+    height: 30px;
+    width: ~"calc(100% - 100px)";
+  }
+
+  button {
+    padding: 5px 20px;
+    background-color: @base-4;
+    color: white;
+    border: 0;
+    cursor: pointer;
+    transition: all 0.5s;
+    border-radius: 5px;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    transition: all 0.5s;
+
+    &:hover {
+      background-color: @base-3;
+    }
+  }
 }
