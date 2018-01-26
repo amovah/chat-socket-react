@@ -10,6 +10,9 @@ const socket = io();
 global.shared = { bind, socket };
 
 const store = require('./store');
+global.shared.store = store;
+
+require('./sockets');
 
 let App = require('./components/App');
 

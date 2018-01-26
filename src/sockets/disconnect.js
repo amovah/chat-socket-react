@@ -9,10 +9,13 @@ socket
 .middleware(
   middlewares.logged
 )
-.handler(socket => () => {
+.handler((socket, nsp) => () => {
   socket.data.user.status = false;
 
-  socket.data.user.save();
+  socket.data.user.save().then(() => {
+    nsp.to(shared.key).emit('goesOffline', socket.data.user.username);
+  });
+
 });
 
 export default socket;

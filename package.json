@@ -4,7 +4,7 @@
   "description": "chat room",
   "main": "build/server.js",
   "scripts": {
-    "server": "nodemon --delay 0.5 build/app.js -e js",
+    "server": "nodemon --delay 1 build/app.js -e js",
     "build": "gulp dev; gulp watch"
   },
   "repository": {

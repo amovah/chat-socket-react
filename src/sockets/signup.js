@@ -9,7 +9,6 @@ socket
   let user = new User(data);
 
   user.save().then(() => {
-    console.log('helloe ther');
     socket.emit('signup', true);
   }).catch(() => {
     socket.emit('signup', false);
