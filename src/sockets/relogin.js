@@ -7,7 +7,7 @@ let socket = new SocketEvent();
 
 socket
 .name('relogin')
-.handler(socket => token => {
+.handler((socket, nsp) => token => {
   verify(token, shared.key, (err, decoded) => {
     if (err) {
       socket.emit('relogin', false);
@@ -18,6 +18,8 @@ socket
           user.save().then(() => {
             socket.data.user = user;
             socket.data.logged = true;
+
+            nsp.to(shared.key).emit('goesOnline', user);
 
             socket.join(shared.key);
 

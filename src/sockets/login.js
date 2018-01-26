@@ -7,13 +7,15 @@ let socket = new SocketEvent();
 
 socket
 .name('login')
-.handler(socket => data => {
+.handler((socket, nsp) => data => {
   User.findOne(data).then(user => {
     if (user) {
       user.status = true;
       user.save().then(() => {
         socket.data.user = user;
         socket.data.logged = true;
+
+        nsp.to(shared.key).emit('goesOnline', user);
 
         socket.join(shared.key);
 
