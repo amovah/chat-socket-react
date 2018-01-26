@@ -9,3 +9,7 @@ socket.on('goesOffline', username => {
 socket.on('goesOnline', user => {
   store.dispatch({ type: types.GOES_ONLINE, user });
 });
+
+socket.on('message', message => {
+  store.dispatch({ type: types.MESSAGE, message });
+});

@@ -1,13 +1,13 @@
 import { SocketEvent } from 'socket.io-manager';
 
-const middlewares = rootRequire('./middles');
+const middles = rootRequire('./middles');
 
 let socket = new SocketEvent();
 
 socket
 .name('disconnect')
 .middleware(
-  middlewares.logged
+  middles.logged
 )
 .handler((socket, nsp) => () => {
   socket.data.user.status = false;
