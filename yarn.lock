@@ -5042,9 +5042,9 @@ socket.io-client@2.0.4, socket.io-client@^2.0.4:
     socket.io-parser "~3.1.1"
     to-array "0.1.4"
 
-socket.io-manager@^0.7.0:
-  version "0.7.0"
-  resolved "https://registry.yarnpkg.com/socket.io-manager/-/socket.io-manager-0.7.0.tgz#19a854e67a400e8f2c6db83d03957803f5340a57"
+socket.io-manager@^0.7.3:
+  version "0.7.3"
+  resolved "https://registry.yarnpkg.com/socket.io-manager/-/socket.io-manager-0.7.3.tgz#4e2e1b0bcce3d714f43fe9629bb20c083e44c647"
 
 socket.io-parser@~3.1.1:
   version "3.1.2"
